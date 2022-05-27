@@ -1,0 +1,17 @@
+.page {
+    background-color: #000000;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-width: 320px;
+    padding: 45px 200px 60px;
+}
+
+.header {
+    min-height: 75px;
+    border-bottom: 1px #545454FF solid;
+}
+
+.header__logo {
+    width: 142px;
+    height: 33px;
+}
