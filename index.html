@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,41 @@
     <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
+
 <body class="page">
     <header class="header">
         <img alt="Логотип проекта" src="./images/header-logo.svg" class="header__logo">
     </header>
+    <div class="profile">
+        <img class="profile__avatar" src="./images/profile-photo.jpg">
+
+        <div class="profile__info">
+            <div class="flex">
+                <p class="profile__name">Имя</p>
+                <button class="profile__edit-button"><img alt="Логотип проекта" src="./images/edit-logo.svg"
+                    class="profile__logo"></button>
+            </div>
+
+            <p class="profile__activity">Деятельность</p>
+
+        </div>
+
+    </div>
+
+    <div class="popup hidden">
+        <div class="popup__content">
+            <button class="popup__close-button"></button>
+            <form class="popup__form">
+                <h1>Редактировать профиль</h1>
+                <fieldset class="form__input-container">
+                    <input class="form__field name"></input>
+                    <input class="form__field activity"></input>
+                </fieldset>
+
+                <button class="popup__submit-button">Сохранить</button>
+            </form>
+        </div>
+        <script src="script.js"></script>
 </body>
+
 </html>
