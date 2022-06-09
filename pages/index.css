@@ -3,7 +3,7 @@
 
 .page {
     background-color: #000000;
-    
+
     padding: 0 200px;
     margin: 0 auto;
     max-width: 1280px;
@@ -30,7 +30,12 @@
         padding: 0 50px 0;
     }
 }
-    
+
+@media screen and (max-width: 424px) {
+    .page {
+        padding: 0 20px 0;
+    }
+}
 
 .header {
     width: 100%;
@@ -52,15 +57,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
- /*   grid-auto-flow: column;
+    /*   grid-auto-flow: column;
     align-items: center;
 justify-self: center;
     grid-template-columns: max-content 1fr max-content;*/
     color: #fff;
-    }
+}
+
 .profile__wrapper {
     display: flex;
 }
+
 .profile__avatar {
 
     width: 120px;
@@ -73,7 +80,7 @@ justify-self: center;
 
 
 .profile__info {
-max-width: 600px;
+    max-width: 600px;
     padding: 22px 0 0 30px;
     margin: 0;
     display: grid;
@@ -99,7 +106,7 @@ max-width: 600px;
     overflow: hidden;
 }
 
-.profile__activity {
+.profile__about {
 
     margin: 0;
     padding: 16px 0 0;
@@ -109,13 +116,16 @@ max-width: 600px;
     font-size: 18px;
     line-height: 22px;
     color: #FFFFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .profile__edit-button {
     margin: 0 0 0;
     background: rgba(0, 0, 0, 0) url(../images/edit-logo.svg);
     background-repeat: no-repeat;
-    
+
     background-position: center;
     width: 24px;
     height: 24px;
@@ -128,7 +138,7 @@ max-width: 600px;
     padding: 0;
     width: 150px;
     height: 50px;
-   align-self: center;
+    align-self: center;
     background: rgba(0, 0, 0, 0) url(../images/add-icon.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -138,6 +148,109 @@ max-width: 600px;
 .profile__logo {
     width: 10px;
     min-height: 10px;
+}
+
+.element {
+    /*display: grid;
+    grid-template-areas: "element__photo element__like-button"
+    "element__title element__like-button";
+    grid-auto-flow: column;*/
+
+    width: 100%;
+    height: max-content;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+
+}
+
+.element__group {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 15px 31px 21px;
+    margin: 0;
+
+}
+
+.element__title {
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+.elements {
+    padding: 50px 0 0;
+    margin: 0;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px 20px;
+    grid-auto-flow: row;
+}
+
+@media screen and (max-width: 767px) {
+    .elements {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .elements {
+        grid-template-columns: 1fr;
+    }
+}
+
+.element__photo {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.element__photo-wrapper {
+    grid-area: element__photo;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+.element__like-button {
+    padding: 0;
+    margin: 0;
+    align-self: center;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(../images/logo-like.svg) ;
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: 100% 100%;
+    height: 19px;
+    width: 22px;
+    border: none;
+}
+
+.element__like-button:hover {
+    opacity: 0.5;
+}
+
+.element__like-button_active {
+    background-image: url(../images/logo-like-active.svg);
 }
 
 .popup {
@@ -166,7 +279,8 @@ max-width: 600px;
     padding: 0;
     width: 32px;
     height: 32px;
-    background-image: url(./images/close-icon.svg);
+    background: rgba(0, 0, 0, 0) url(../images/close-icon.svg);
+    border: none;
 
 
 }

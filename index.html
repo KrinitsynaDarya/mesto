@@ -14,16 +14,16 @@
         <img alt="Логотип проекта" src="./images/header-logo.svg" class="header__logo">
     </header>
     <div class="profile">
-<div class="profile__wrapper">
-        <div><img class="profile__avatar" src="./images/profile-photo.jpg"></div>
-        <div class="profile__info">
-            <p class="profile__name">Имя</p>
-            <button class="profile__edit-button"></button>
-            <p class="profile__activity">О себе</p>
+        <div class="profile__wrapper">
+            <div><img class="profile__avatar" src="./images/profile-photo.jpg"></div>
+            <div class="profile__info">
+                <p class="profile__name">Имя</p>
+                <button class="profile__edit-button"></button>
+                <p class="profile__about">О себе</p>
+            </div>
         </div>
-    </div>
         <button class="profile__add-button"></button>
-    
+
     </div>
     <div class="popup hidden">
         <div class="popup__content">
@@ -32,13 +32,77 @@
                 <h1>Редактировать профиль</h1>
                 <fieldset class="form__input-container">
                     <input class="form__field name"></input>
-                    <input class="form__field activity"></input>
+                    <input class="form__field about"></input>
                 </fieldset>
 
                 <button class="popup__submit-button">Сохранить</button>
             </form>
         </div>
-        <script src="script.js"></script>
+    </div>
+    <div>
+        <section class="elements">
+
+            <div class="element">
+                <div class="element__photo-wrapper"><img class="element__photo" alt="Фото места"
+                        src="./images/belukha.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Гора Белуха </h2>
+                    <button class="element__like-button"></button>
+                </div>
+                
+
+
+            </div>
+            <div class="element">
+                <div class="element__photo-wrapper"> <img class="element__photo" alt="Фото места"
+                        src="./images/lake-ladoga.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Ладога</h2>
+                    <button class="element__like-button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <div class="element__photo-wrapper"> <img class="element__photo" alt="Фото места"
+                        src="./images/geysers_valley.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Долина гейзеров</h2>
+                    <button class="element__like-button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <div class="element__photo-wrapper"> <img class="element__photo" alt="Фото места"
+                        src="./images/Krenitsyna-vulcan.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Вулкан Креницына</h2>
+                    <button class="element__like-button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <div class="element__photo-wrapper"> <img class="element__photo" alt="Фото места"
+                        src="./images/sulak.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Сулакский каньон</h2>
+                    <button class="element__like-button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <div class="element__photo-wrapper">
+                    <img class="element__photo" alt="Фото места" src="./images/Kungur-Ice-Cave.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Кунгурская пещера</h2>
+                    <button class="element__like-button"></button>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
