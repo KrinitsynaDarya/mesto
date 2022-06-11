@@ -1,0 +1,15 @@
+.profile {
+    width: 100%;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 40px 0 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*   grid-auto-flow: column;
+    align-items: center;
+justify-self: center;
+    grid-template-columns: max-content 1fr max-content;*/
+    color: #fff;
+}

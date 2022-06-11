@@ -1,0 +1,12 @@
+.profile__info {
+    max-width: 600px;
+    padding: 22px 0 0 30px;
+    margin: 0;
+    display: grid;
+    gap: 0px 18px;
+    align-items: baseline;
+    grid-template-columns: 1fr max-content;
+    grid-template-areas:
+        "profile__name""profile__edit-button"
+        "profile__activity"".";
+}
