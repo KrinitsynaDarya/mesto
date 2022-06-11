@@ -1,15 +1,8 @@
-console.log('Hello, Dasha!');
-
 let editButton = document.querySelector('.profile__edit-button');
 let popup = document.querySelector('.popup');
 let closeButton = document.querySelector('.popup__close-button');
 
-
-
-
-
 let likeButtons = document.querySelectorAll('.element__like-button');
-console.log(likeButtons.length);
 
 let profileName = document.querySelector('.profile__name');
 
@@ -46,4 +39,3 @@ submitButton.addEventListener('click', function (evt) {
     profileName.textContent = inputs[0].value;
     profileActivity.textContent = inputs[1].value;
 })
-
