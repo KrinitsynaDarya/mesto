@@ -1,6 +1,6 @@
 .popup {
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     left: 0;
     top: 0;
