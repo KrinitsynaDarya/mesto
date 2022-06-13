@@ -8,14 +8,14 @@
 Также прменяется работа с DOM средствами JavaScript(попап, лайки и пр.).
 
 ### Обзор
-
+* [Ссылка на проект в GitHub Pages](https://krinitsynadarya.github.io/mesto/index.html)
+-----
 * Figma
 * TO-DO
 
 **Figma**
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
-
 -----
 
 Проект написан на языке HTML5 с использованием стилей CSS. Имеется работа с DOM средствами чистого JavaScript. Для корректного отображения сайта на ПК необходимо наличие любого современного браузера.
