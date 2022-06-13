@@ -8,7 +8,7 @@
     grid-template-columns: 1fr max-content;
     grid-template-areas:
         "profile__name""profile__edit-button"
-        "profile__about""."*/;
+        "profile__about""."*/
 }
 
 @media screen and (max-width: 767px) {
