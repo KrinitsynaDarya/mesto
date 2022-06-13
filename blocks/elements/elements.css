@@ -11,6 +11,7 @@
 @media screen and (max-width: 767px) {
     .elements {
         grid-template-columns: repeat(2, 1fr);
+        padding: 36px 0 0;
     }
 }
 

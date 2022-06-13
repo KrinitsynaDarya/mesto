@@ -1,12 +1,25 @@
 .profile__info {
-    max-width: 600px;
+    max-width: 50%;
     padding: 22px 0 0 30px;
     margin: 0;
-    display: grid;
+    /* display: grid;
     gap: 0px 18px;
     align-items: baseline;
     grid-template-columns: 1fr max-content;
     grid-template-areas:
         "profile__name""profile__edit-button"
-        "profile__activity"".";
+        "profile__about""."*/;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__info {
+        max-width: 100%;
+        margin: 0 0 0 0;
+        padding: 22.5px 0 36px;
+        /*align-self: center;
+        gap: 0px 10px;
+        grid-template-areas:
+        "profile__name""profile__edit-button"
+        "profile__about";*/
+    }
 }
