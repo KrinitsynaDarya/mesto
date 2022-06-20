@@ -13,79 +13,81 @@
     <header class="header">
         <img alt="Логотип проекта" src="./images/header-logo.svg" class="header__logo">
     </header>
-    <section class="profile">
-        <img class="profile__avatar" src="./images/profile-photo.jpg" alt="Фото профиля">
-        <div class="profile__info">
-            <div class="profile__wrapper">
-                <h1 class="profile__name">Имя</h1>
-                <button class="profile__edit-button"></button>
+    <main class="content">
+        <section class="profile">
+            <img class="profile__avatar" src="./images/profile-photo.jpg" alt="Фото профиля">
+            <div class="profile__info">
+                <div class="profile__wrapper">
+                    <h1 class="profile__name">Имя</h1>
+                    <button type="button" class="profile__edit-button"></button>
+               </div>
+                <p class="profile__about">О себе</p>
             </div>
-            <p class="profile__about">О себе</p>
-        </div>
-        <button class="profile__add-button"></button>
-    </section>
-    <section class="elements">
-        <div class="element">
-            <div class="element__photo-wrapper"><img class="element__photo" alt="Фото места Гора Белуха"
-                    src="./images/belukha.jpg">
+            <button type="button" class="profile__add-button"></button>
+        </section>
+        <section class="elements">
+            <div class="element">
+                <div class="element__photo-wrapper">
+                    <img class="element__photo" alt="Фото места Гора Белуха" src="./images/belukha.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Гора Белуха</h2>
+                    <button type="button" class="element__like-button"></button>
+                </div>
             </div>
-            <div class="element__group">
-                <h2 class="element__title">Гора Белуха</h2>
-                <button class="element__like-button"></button>
+            <div class="element">
+                <div class="element__photo-wrapper">
+                    <img class="element__photo" alt="Фото места Ладога" src="./images/lake-ladoga.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Ладога</h2>
+                    <button type="button" class="element__like-button"></button>
+                </div>
             </div>
-        </div>
-        <div class="element">
-            <div class="element__photo-wrapper"> <img class="element__photo" alt="Фото места Ладога"
-                    src="./images/lake-ladoga.jpg">
+            <div class="element">
+                <div class="element__photo-wrapper">
+                    <img class="element__photo" alt="Фото места Долина гейзеров" src="./images/geysers_valley.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Долина гейзеров</h2>
+                    <button type="button" class="element__like-button"></button>
+                </div>
             </div>
-            <div class="element__group">
-                <h2 class="element__title">Ладога</h2>
-                <button class="element__like-button"></button>
+            <div class="element">
+                <div class="element__photo-wrapper">
+                    <img class="element__photo" alt="Фото места Вулкан Креницына" src="./images/Krenitsyna-vulcan.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Вулкан Креницына</h2>
+                    <button type="button" class="element__like-button"></button>
+                </div>
             </div>
-        </div>
-        <div class="element">
-            <div class="element__photo-wrapper"> <img class="element__photo" alt="Фото места Долина гейзеров"
-                    src="./images/geysers_valley.jpg">
+            <div class="element">
+                <div class="element__photo-wrapper">
+                    <img class="element__photo" alt="Фото места Сулакский каньон" src="./images/sulak.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Сулакский каньон</h2>
+                    <button type="button" class="element__like-button"></button>
+                </div>
             </div>
-            <div class="element__group">
-                <h2 class="element__title">Долина гейзеров</h2>
-                <button class="element__like-button"></button>
+            <div class="element">
+                <div class="element__photo-wrapper">
+                    <img class="element__photo" alt="Фото места Кунгурская пещера" src="./images/Kungur-Ice-Cave.jpg">
+                </div>
+                <div class="element__group">
+                    <h2 class="element__title">Кунгурская пещера</h2>
+                    <button type="button" class="element__like-button"></button>
+                </div>
             </div>
-        </div>
-        <div class="element">
-            <div class="element__photo-wrapper"> <img class="element__photo" alt="Фото места Вулкан Креницына"
-                    src="./images/Krenitsyna-vulcan.jpg">
-            </div>
-            <div class="element__group">
-                <h2 class="element__title">Вулкан Креницына</h2>
-                <button class="element__like-button"></button>
-            </div>
-        </div>
-        <div class="element">
-            <div class="element__photo-wrapper"> <img class="element__photo" alt="Фото места Сулакский каньон"
-                    src="./images/sulak.jpg">
-            </div>
-            <div class="element__group">
-                <h2 class="element__title">Сулакский каньон</h2>
-                <button class="element__like-button"></button>
-            </div>
-        </div>
-        <div class="element">
-            <div class="element__photo-wrapper">
-                <img class="element__photo" alt="Фото места Кунгурская пещера" src="./images/Kungur-Ice-Cave.jpg">
-            </div>
-            <div class="element__group">
-                <h2 class="element__title">Кунгурская пещера</h2>
-                <button class="element__like-button"></button>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer>
         <p class="footer">© 2020 Mesto Russia</p>
     </footer>
     <section class="popup">
         <div class="popup__content">
-            <button class="popup__close-button"></button>
+            <button type="button" class="popup__close-button"></button>
             <form class="popup__form">
                 <h1 class="popup__title">Редактировать профиль</h1>
                 <fieldset class="popup__input-container">

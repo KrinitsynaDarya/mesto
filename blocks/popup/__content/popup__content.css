@@ -1,5 +1,6 @@
 .popup__content {
     padding: 155px 0 0;
+    min-width: 282px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,13 +10,14 @@
 
 @media screen and (max-width: 767px) {
     .popup__content {
-        padding: 148px 20px 0;
+        padding: 87px 50px 0;
         width: calc(100% - 50px*2);
     }
 }
 
 @media screen and (max-width: 424px) {
     .popup__content {
-        width: calc(100% - 20px*2);
+        padding: 87px 19px 0;
+        width: calc(100% - 19px*2);
     }
 }

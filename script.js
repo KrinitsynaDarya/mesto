@@ -10,7 +10,7 @@ let submitButton = formElement.querySelector('.popup__submit-button');
 let nameInput = formElement.querySelector('.name');
 let jobInput = formElement.querySelector('.about');
 
-let likeButtons = document.querySelectorAll('.element__like-button');
+/*let likeButtons = document.querySelectorAll('.element__like-button');*/
 
 editButton.addEventListener('click', function () {
     popup.classList.add('popup_opened');
@@ -29,11 +29,11 @@ submitButton.addEventListener('click', function (evt) {
     profileJob.textContent = inputs[1].value;
 })
 
-function addLike(button) {
+/*function addLike(button) {
     button.classList.toggle('element__like-button_active');
 }
 
 likeButtons.forEach(function (likeButton) {
     likeButton.addEventListener('click', () => addLike(likeButton)
     );
-});
+});*/

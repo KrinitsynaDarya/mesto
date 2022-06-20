@@ -1,5 +1,5 @@
 .profile__info {
-    max-width: 50%;
+    max-width: calc(100% - 320px);
     padding: 22px 0 0 30px;
     margin: 0;
     /* display: grid;
@@ -14,12 +14,11 @@
 @media screen and (max-width: 767px) {
     .profile__info {
         max-width: 100%;
-        margin: 0 0 0 0;
         padding: 22.5px 0 36px;
-        /*align-self: center;
+        /*display: grid;
         gap: 0px 10px;
         grid-template-areas:
-        "profile__name""profile__edit-button"
+        "profile__wrapper"
         "profile__about";*/
     }
 }
