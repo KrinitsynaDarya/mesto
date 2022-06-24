@@ -1,6 +1,6 @@
 .header {
     padding: 45px 200px 41px 0;
-    border-bottom: 1px #545454FF solid;
+    border-bottom: 1px rgba(84, 84, 84, .7) solid;/* 2. добавлена прозрачность через rgba*/
     box-sizing: border-box;
 }
 

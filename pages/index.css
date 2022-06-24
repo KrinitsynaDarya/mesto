@@ -25,7 +25,7 @@
 @import url(../blocks/element/__group/element__group.css);
 @import url(../blocks/element/__like-button/element__like-button.css);
 @import url(../blocks/element/__like-button/_active/element__like-button_active.css);
-@import url(../blocks/element/__photo-wrapper/element__photo-wrapper.css);
+/* 1. Убран стиль для element__photo-wrapper*/
 @import url(../blocks/element/__photo/element__photo.css);
 @import url(../blocks/element/__title/element__title.css);
 

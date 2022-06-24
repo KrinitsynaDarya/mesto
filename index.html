@@ -18,63 +18,52 @@
             <img class="profile__avatar" src="./images/profile-photo.jpg" alt="Фото профиля">
             <div class="profile__info">
                 <div class="profile__wrapper">
-                    <h1 class="profile__name">Имя</h1>
+                    <h1 class="profile__name">Пользователь</h1>
                     <button type="button" class="profile__edit-button"></button>
-               </div>
-                <p class="profile__about">О себе</p>
+                </div>
+                <p class="profile__about">Чем занимается</p>
             </div>
             <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements">
             <div class="element">
-                <div class="element__photo-wrapper">
-                    <img class="element__photo" alt="Фото места Гора Белуха" src="./images/belukha.jpg">
-                </div>
+                <!-- 5. Убрана лишняя обертка -->
+                <img class="element__photo" alt="Фото места Гора Белуха" src="./images/belukha.jpg">
                 <div class="element__group">
                     <h2 class="element__title">Гора Белуха</h2>
                     <button type="button" class="element__like-button"></button>
                 </div>
             </div>
             <div class="element">
-                <div class="element__photo-wrapper">
-                    <img class="element__photo" alt="Фото места Ладога" src="./images/lake-ladoga.jpg">
-                </div>
+                <img class="element__photo" alt="Фото места Ладога" src="./images/lake-ladoga.jpg">
                 <div class="element__group">
                     <h2 class="element__title">Ладога</h2>
                     <button type="button" class="element__like-button"></button>
                 </div>
             </div>
             <div class="element">
-                <div class="element__photo-wrapper">
-                    <img class="element__photo" alt="Фото места Долина гейзеров" src="./images/geysers_valley.jpg">
-                </div>
+                <img class="element__photo" alt="Фото места Долина гейзеров" src="./images/geysers_valley.jpg">
                 <div class="element__group">
                     <h2 class="element__title">Долина гейзеров</h2>
                     <button type="button" class="element__like-button"></button>
                 </div>
             </div>
             <div class="element">
-                <div class="element__photo-wrapper">
-                    <img class="element__photo" alt="Фото места Вулкан Креницына" src="./images/Krenitsyna-vulcan.jpg">
-                </div>
+                <img class="element__photo" alt="Фото места Вулкан Креницына" src="./images/Krenitsyna-vulcan.jpg">
                 <div class="element__group">
                     <h2 class="element__title">Вулкан Креницына</h2>
                     <button type="button" class="element__like-button"></button>
                 </div>
             </div>
             <div class="element">
-                <div class="element__photo-wrapper">
-                    <img class="element__photo" alt="Фото места Сулакский каньон" src="./images/sulak.jpg">
-                </div>
+                <img class="element__photo" alt="Фото места Сулакский каньон" src="./images/sulak.jpg">
                 <div class="element__group">
                     <h2 class="element__title">Сулакский каньон</h2>
                     <button type="button" class="element__like-button"></button>
                 </div>
             </div>
             <div class="element">
-                <div class="element__photo-wrapper">
-                    <img class="element__photo" alt="Фото места Кунгурская пещера" src="./images/Kungur-Ice-Cave.jpg">
-                </div>
+                <img class="element__photo" alt="Фото места Кунгурская пещера" src="./images/Kungur-Ice-Cave.jpg">
                 <div class="element__group">
                     <h2 class="element__title">Кунгурская пещера</h2>
                     <button type="button" class="element__like-button"></button>
@@ -85,21 +74,25 @@
     <footer>
         <p class="footer">© 2020 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <div class="popup">
+        <!-- 6. Скрытый блок, убрали тег section -->
         <div class="popup__content">
             <button type="button" class="popup__close-button"></button>
-            <form class="popup__form">
-                <h1 class="popup__title">Редактировать профиль</h1>
+            <form class="popup__form" name="editProfile" method="POST">
+                <!-- 7. Добавлены имя и метод для формы -->
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <!-- 8. Оставлен только один заголовок уровня h1 на странице -->
                 <fieldset class="popup__input-container">
-                    <input class="popup__field name">
-                    <input class="popup__field about">
+                    <!-- 9. Замена класса на модификатор элемента, добавление атрибутов name, placeholder -->
+                    <input class="popup__field popup__field_name" name="profileName" placeholder="Имя">
+                    <input class="popup__field popup__field_about" name="profileJob" placeholder="О себе">
                 </fieldset>
 
-                <button class="popup__submit-button">Сохранить</button>
+                <button type="submit" class="popup__submit-button">Сохранить</button> <!-- 10. Добавлен тип submit для кнопки отправки формы -->
             </form>
         </div>
-    </section>
-    <script src="script.js"></script>
+    </div>
+    <script src="./scripts/script.js"></script> <!-- 11. Файл скрипта перенесен в новую папку -->
 </body>
 
 </html>

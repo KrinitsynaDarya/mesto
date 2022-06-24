@@ -4,13 +4,16 @@ let closeButton = document.querySelector('.popup__close-button');
 
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__about');
-
 let formElement = document.querySelector('.popup__form');
-let submitButton = formElement.querySelector('.popup__submit-button');
-let nameInput = formElement.querySelector('.name');
-let jobInput = formElement.querySelector('.about');
+/* 12. Убрали лишнюю переменную submitButton*/
+let nameInput = formElement.querySelector('.popup__field_name');
+let jobInput = formElement.querySelector('.popup__field_about');
 
 /*let likeButtons = document.querySelectorAll('.element__like-button');*/
+/* 13. Вынесли работу с модификатором opened блока в отдельную функцию */
+function closePopup() {
+    popup.classList.remove('popup_opened');
+}
 
 editButton.addEventListener('click', function () {
     popup.classList.add('popup_opened');
@@ -18,15 +21,17 @@ editButton.addEventListener('click', function () {
     jobInput.value = profileJob.textContent;
 })
 
-closeButton.addEventListener('click', function () {
-    popup.classList.remove('popup_opened');
-})
+closeButton.addEventListener('click', () => closePopup()
+)
 
-submitButton.addEventListener('click', function (evt) {
+/* 14. Повесили обработчик события submit на popup__form */
+formElement.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    let inputs = document.querySelectorAll('input');
-    profileName.textContent = inputs[0].value;
-    profileJob.textContent = inputs[1].value;
+    /* 15. Убрали querySelectorAll для 'input' */
+    profileName.textContent = nameInput.value;
+    profileJob.textContent = jobInput.value;
+    /* 16. Закрываем попап после сохранения изменений*/
+    closePopup();
 })
 
 /*function addLike(button) {

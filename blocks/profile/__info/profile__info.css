@@ -14,7 +14,7 @@
 @media screen and (max-width: 767px) {
     .profile__info {
         max-width: 100%;
-        padding: 22.5px 0 36px;
+        padding: 26px 0 36px;
         /*display: grid;
         gap: 0px 10px;
         grid-template-areas:
