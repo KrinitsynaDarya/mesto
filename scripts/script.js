@@ -6,8 +6,8 @@ let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__about');
 let formElement = document.querySelector('.popup__form');
 /* 12. Убрали лишнюю переменную submitButton*/
-let nameInput = formElement.querySelector('.popup__field_name');
-let jobInput = formElement.querySelector('.popup__field_about');
+let nameInput = formElement.querySelector('.popup__field_type_name');
+let jobInput = formElement.querySelector('.popup__field_type_about');
 
 /*let likeButtons = document.querySelectorAll('.element__like-button');*/
 /* 13. Вынесли работу с модификатором opened блока в отдельную функцию */
