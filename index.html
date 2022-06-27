@@ -26,49 +26,6 @@
             <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements">
-            <div class="element">
-                <!-- 5. Убрана лишняя обертка -->
-                <img class="element__photo" alt="Фото места Гора Белуха" src="./images/belukha.jpg">
-                <div class="element__group">
-                    <h2 class="element__title">Гора Белуха</h2>
-                    <button type="button" class="element__like-button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__photo" alt="Фото места Ладога" src="./images/lake-ladoga.jpg">
-                <div class="element__group">
-                    <h2 class="element__title">Ладога</h2>
-                    <button type="button" class="element__like-button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__photo" alt="Фото места Долина гейзеров" src="./images/geysers_valley.jpg">
-                <div class="element__group">
-                    <h2 class="element__title">Долина гейзеров</h2>
-                    <button type="button" class="element__like-button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__photo" alt="Фото места Вулкан Креницына" src="./images/Krenitsyna-vulcan.jpg">
-                <div class="element__group">
-                    <h2 class="element__title">Вулкан Креницына</h2>
-                    <button type="button" class="element__like-button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__photo" alt="Фото места Сулакский каньон" src="./images/sulak.jpg">
-                <div class="element__group">
-                    <h2 class="element__title">Сулакский каньон</h2>
-                    <button type="button" class="element__like-button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__photo" alt="Фото места Кунгурская пещера" src="./images/Kungur-Ice-Cave.jpg">
-                <div class="element__group">
-                    <h2 class="element__title">Кунгурская пещера</h2>
-                    <button type="button" class="element__like-button"></button>
-                </div>
-            </div>
         </section>
     </main>
     <footer>
@@ -88,10 +45,20 @@
                     <input class="popup__field popup__field_type_about" name="profileJob" placeholder="О себе">
                 </fieldset>
 
-                <button type="submit" class="popup__submit-button">Сохранить</button> <!-- 10. Добавлен тип submit для кнопки отправки формы -->
+                <button type="submit" class="popup__submit-button">Сохранить</button>
+                <!-- 10. Добавлен тип submit для кнопки отправки формы -->
             </form>
         </div>
     </div>
+    <template id="element">
+        <div class="element">
+            <img class="element__photo" alt="Фото места Ладога" src="./images/lake-ladoga.jpg">
+            <div class="element__group">
+                <h2 class="element__title">Ладога</h2>
+                <button type="button" class="element__like-button"></button>
+            </div>
+        </div>
+    </template>
     <script src="./scripts/script.js"></script> <!-- 11. Файл скрипта перенесен в новую папку -->
 </body>
 
