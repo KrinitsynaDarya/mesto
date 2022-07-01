@@ -8,7 +8,6 @@
     flex-direction: column;
     height: auto;
     margin: auto;
-    /* 3. Всегда центрируем попап */
 }
 
 @media screen and (max-width: 527px) {

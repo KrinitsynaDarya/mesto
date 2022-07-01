@@ -31,7 +31,7 @@
     <footer>
         <p class="footer">© 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup" id="popup-profile-edit">
         <!-- 6. Скрытый блок, убрали тег section -->
         <div class="popup__content">
             <button type="button" class="popup__close-button"></button>
@@ -50,13 +50,35 @@
             </form>
         </div>
     </div>
+    <div class="popup" id="popup-card-new">
+        <div class="popup__content">
+            <button type="button" class="popup__close-button"></button>
+            <form class="popup__form" name="newCard" method="POST">
+                <h2 class="popup__title">Новое место</h2>
+                <fieldset class="popup__input-container">
+                    <input class="popup__field popup__field_type_place" name="profileName" placeholder="Название">
+                    <input class="popup__field popup__field_type_link" name="profileJob"
+                        placeholder="Ссылка на картинку">
+                </fieldset>
+                <button type="submit" class="popup__submit-button">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup_view-photo">
+        <div class="popup__content popup__content_type_photo">
+            <button type="button" class="popup__close-button"></button>
+            <img src="" alt="" class="popup__photo">
+            <p class="popup__photo-caption"></p>
+        </div>
+    </div>
     <template id="element">
         <div class="element">
-            <img class="element__photo" alt="Фото места Ладога" src="./images/lake-ladoga.jpg">
+            <img class="element__photo" alt="" src="">
             <div class="element__group">
-                <h2 class="element__title">Ладога</h2>
+                <h2 class="element__title"></h2>
                 <button type="button" class="element__like-button"></button>
             </div>
+            <button type="button" class="element__delete-button"></button>
         </div>
     </template>
     <script src="./scripts/script.js"></script> <!-- 11. Файл скрипта перенесен в новую папку -->
