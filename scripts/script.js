@@ -21,13 +21,14 @@ const linkInput = formAddCard.querySelector('.popup__field_type_link');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__about');
 const cardTemplate = document.querySelector('#element').content;
-const link = popupViewPhoto.querySelector('.popup__photo');
-const cap = popupViewPhoto.querySelector('.popup__photo-caption');
+const imgLink = popupViewPhoto.querySelector('.popup__photo');
+/* 1. переменной дано более понятное имя */
+const imgCaption = popupViewPhoto.querySelector('.popup__photo-caption');
 function openPopup(popupElement) {
     popupElement.classList.add('popup_opened');
 }
-
-function closePopup(popup, e) {
+/* 2. убрали e из параметров */
+function closePopup(popup) {
     popup.classList.remove('popup_opened');
 }
 
@@ -43,7 +44,7 @@ addButton.addEventListener('click', function () {
 
 closeButtons.forEach(function (btn) {
     const popup = btn.closest('.popup');
-    btn.addEventListener('click', (evt) => closePopup(popup, evt));
+    btn.addEventListener('click', () => closePopup(popup));
 }
 )
 
@@ -51,19 +52,21 @@ formEditProfile.addEventListener('submit', function (evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    /* 16. Закрываем попап после сохранения изменений*/
-    const popup = evt.target.closest('.popup');
-    closePopup(popup);
+    /* 3. функции передано имя попапа в явном виде */
+    closePopup(popupEditProfile);
 })
 
 formAddCard.addEventListener('submit', function (evt) {
     evt.preventDefault();
     renderCard(createCard(placeInput.value, linkInput.value));
-    const popup = evt.target.closest('.popup');
-    closePopup(popup);
+    /* 4. функции передано имя попапа в явном виде */
+    closePopup(popupAddCard);
+    /* 5. сброс значений полей после добавления карточки */
+    evt.target.reset();
 })
 
-function addLike(button) {
+/* 6. функция переименована */
+function toggleLike(button) {
     button.classList.toggle('element__like-button_active');
 }
 
@@ -95,20 +98,6 @@ const initialCards = [
 ];
 
 const cardsGrid = document.querySelector('.elements');
-cardsGrid.addEventListener('click', function (evt) {
-    if (evt.target.classList.contains('element__like-button')) {
-        addLike(evt.target);
-    }
-    else if (evt.target.classList.contains('element__delete-button')) {
-        const el = evt.target.closest('.element');
-        deleteCard(el);
-    }
-    else if (evt.target.classList.contains('element__photo')) {
-        link.src = evt.target.src;
-        cap.textContent = evt.target.alt;
-        openPopup(popupViewPhoto);
-    }
-});
 
 function deleteCard(el) {
     el.remove();
@@ -120,9 +109,31 @@ initialCards.forEach(function (card) {
 
 function createCard(name, link) {
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-    cardElement.querySelector('.element__photo').src = link;
-    cardElement.querySelector('.element__photo').alt = 'Фото ' + name;
-    cardElement.querySelector('.element__title').textContent = name;
+    const cardPhoto = cardElement.querySelector('.element__photo');
+    const cardLike = cardElement.querySelector('.element__like-button');
+    const cardTitle = cardElement.querySelector('.element__title');
+    /* 7. заменили на переменную для избежания дублирования поиска */
+    cardPhoto.src = link;
+    cardPhoto.alt = 'Фото ' + name;
+    cardTitle.textContent = name;
+
+    /* 8. переносим обработчики событий, убирая делегирование */
+    cardPhoto.addEventListener('click', function (evt) {
+        imgLink.src = cardPhoto.src;
+        /* 9. добавляем alt в попап с картинкой */
+        imgLink.alt = cardPhoto.alt;
+        imgCaption.textContent = cardTitle.textContent;
+        openPopup(popupViewPhoto);
+    });
+
+    cardLike.addEventListener('click', function (evt) {
+        toggleLike(cardLike);
+    });
+
+    cardElement.querySelector('.element__delete-button').addEventListener('click', function (evt) {
+        deleteCard(cardElement);
+    });
+
     return cardElement;
 }
 
