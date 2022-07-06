@@ -23,20 +23,7 @@ const profileJob = document.querySelector('.profile__about');
 const cardTemplate = document.querySelector('#element').content;
 const imgLink = popupViewPhoto.querySelector('.popup__photo');
 
-/*const config =
-{
-  formSelector: '.popup__form',
-  inputSelector: '.popup__field',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__submit-button_inactive',
-  inputErrorClass: 'popup__field_type_error',
-  errorClass: 'popup__field-error_active'
-};
-enableValidation(config); */
-
-/* 1. переменной дано более понятное имя */
 const imgCaption = popupViewPhoto.querySelector('.popup__photo-caption');
-/* 2. убрали e из параметров */
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEsc);
@@ -51,16 +38,15 @@ function closePopupByEsc(evt) {
 
 function openPopup(popupElement) {
     const buttonElement = popupElement.querySelector(config.submitButtonSelector);
-    const inputList = Array.from(popupElement.querySelectorAll('.popup__field'));
-    toggleButtonState(inputList, buttonElement, config);
+    const inputList = Array.from(popupElement.querySelectorAll(config.inputSelector));
+    
     inputList.forEach((inputElement) => {
-        isValid(popupElement, inputElement, config);         
-      });
+        isValid(popupElement, inputElement, config);
+        toggleButtonState(inputList, buttonElement, config);
+    });
 
     popupElement.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
-    
- 
 };
 
 function closePopupByClick(evt, popup) {
@@ -68,15 +54,13 @@ function closePopupByClick(evt, popup) {
 }
 
 popupEditProfile.addEventListener('click', (evt) => closePopupByClick(evt, popupEditProfile));
-
 popupAddCard.addEventListener('click', (evt) => closePopupByClick(evt, popupAddCard));
-
 popupViewPhoto.addEventListener('click', (evt) => closePopupByClick(evt, popupViewPhoto));
 
 editProfileButton.addEventListener('click', function () {
-    openPopup(popupEditProfile);
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
+    openPopup(popupEditProfile);
 })
 
 addButton.addEventListener('click', function () {
@@ -93,20 +77,16 @@ formEditProfile.addEventListener('submit', function (evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    /* 3. функции передано имя попапа в явном виде */
     closePopup(popupEditProfile);
 })
 
 formAddCard.addEventListener('submit', function (evt) {
     evt.preventDefault();
     renderCard(createCard(placeInput.value, linkInput.value));
-    /* 4. функции передано имя попапа в явном виде */
     closePopup(popupAddCard);
-    /* 5. сброс значений полей после добавления карточки */
     evt.target.reset();
 })
 
-/* 6. функция переименована */
 function toggleLike(button) {
     button.classList.toggle('element__like-button_active');
 }
@@ -153,15 +133,12 @@ function createCard(name, link) {
     const cardPhoto = cardElement.querySelector('.element__photo');
     const cardLike = cardElement.querySelector('.element__like-button');
     const cardTitle = cardElement.querySelector('.element__title');
-    /* 7. заменили на переменную для избежания дублирования поиска */
     cardPhoto.src = link;
     cardPhoto.alt = 'Фото ' + name;
     cardTitle.textContent = name;
 
-    /* 8. переносим обработчики событий, убирая делегирование */
     cardPhoto.addEventListener('click', function (evt) {
         imgLink.src = cardPhoto.src;
-        /* 9. добавляем alt в попап с картинкой */
         imgLink.alt = cardPhoto.alt;
         imgCaption.textContent = cardTitle.textContent;
         openPopup(popupViewPhoto);

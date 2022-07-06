@@ -16,11 +16,10 @@ const activateButton = (buttonElement, config) => {
 };
 
 const toggleButtonState = (inputList, buttonElement, config) => {
-  /*console.log(inputList, buttonElement, inactiveButtonClass);*/
   if (hasInvalidInput(inputList)) {
-    inactivateButton(buttonElement, config.inactiveButtonClass);
+    inactivateButton(buttonElement, config);
   } else {
-    activateButton(buttonElement, config.inactiveButtonClass);
+    activateButton(buttonElement, config);
   }
 };
 
@@ -39,16 +38,12 @@ const hideInputError = (formElement, inputElement, config) => {
 };
 
 const isValid = (formElement, inputElement, config) => {
- console.log(inputElement.validity);
- console.log(inputElement.validity.valid);
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage, config);
   } else {
     hideInputError(formElement, inputElement, config);
   }
 };
-
-
 
 const setEventListeners = (formElement, config) => {
 
