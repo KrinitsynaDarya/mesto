@@ -37,14 +37,6 @@ function closePopupByEsc(evt) {
 };
 
 function openPopup(popupElement) {
-    const buttonElement = popupElement.querySelector(config.submitButtonSelector);
-    const inputList = Array.from(popupElement.querySelectorAll(config.inputSelector));
-    
-    inputList.forEach((inputElement) => {
-        isValid(popupElement, inputElement, config);
-        toggleButtonState(inputList, buttonElement, config);
-    });
-
     popupElement.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
 };
@@ -60,10 +52,22 @@ popupViewPhoto.addEventListener('click', (evt) => closePopupByClick(evt, popupVi
 editProfileButton.addEventListener('click', function () {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
+
+    const buttonElement = popupEditProfile.querySelector(config.submitButtonSelector);
+    const inputList = Array.from(popupEditProfile.querySelectorAll(config.inputSelector));
+    inputList.forEach((inputElement) => {
+        isValid(popupEditProfile, inputElement, config);
+        toggleButtonState(inputList, buttonElement, config);
+    });
+
     openPopup(popupEditProfile);
 })
 
 addButton.addEventListener('click', function () {
+    const buttonElement = popupAddCard.querySelector(config.submitButtonSelector);
+    const inputList = Array.from(popupAddCard.querySelectorAll(config.inputSelector));
+    toggleButtonState(inputList, buttonElement, config);
+
     openPopup(popupAddCard);
 });
 
@@ -90,33 +94,6 @@ formAddCard.addEventListener('submit', function (evt) {
 function toggleLike(button) {
     button.classList.toggle('element__like-button_active');
 }
-
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
 const cardsGrid = document.querySelector('.elements');
 
