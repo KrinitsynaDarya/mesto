@@ -11,8 +11,8 @@ const closeButtons = document.querySelectorAll('.popup__close-button');
 const formEditProfile = document.querySelector('#popup-profile-edit');
 const formAddCard = document.querySelector('#popup-card-new');
 /*поля ввода*/
-const nameInput = formEditProfile.querySelector('.popup__field_type_name');
-const jobInput = formEditProfile.querySelector('.popup__field_type_about');
+const nameInput = formEditProfile.querySelector('#profile-name');
+const jobInput = formEditProfile.querySelector('#profile-job');
 
 const placeInput = formAddCard.querySelector('.popup__field_type_place');
 const linkInput = formAddCard.querySelector('.popup__field_type_link');
@@ -22,15 +22,56 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__about');
 const cardTemplate = document.querySelector('#element').content;
 const imgLink = popupViewPhoto.querySelector('.popup__photo');
+
+/*const config =
+{
+  formSelector: '.popup__form',
+  inputSelector: '.popup__field',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_inactive',
+  inputErrorClass: 'popup__field_type_error',
+  errorClass: 'popup__field-error_active'
+};
+enableValidation(config); */
+
 /* 1. переменной дано более понятное имя */
 const imgCaption = popupViewPhoto.querySelector('.popup__photo-caption');
-function openPopup(popupElement) {
-    popupElement.classList.add('popup_opened');
-}
 /* 2. убрали e из параметров */
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupByEsc);
+};
+
+function closePopupByEsc(evt) {
+    if (evt.key === 'Escape') {
+        const popup = document.querySelector('.popup_opened');
+        closePopup(popup);
+    }
+};
+
+function openPopup(popupElement) {
+    const buttonElement = popupElement.querySelector(config.submitButtonSelector);
+    const inputList = Array.from(popupElement.querySelectorAll('.popup__field'));
+    toggleButtonState(inputList, buttonElement, config);
+    inputList.forEach((inputElement) => {
+        isValid(popupElement, inputElement, config);         
+      });
+
+    popupElement.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupByEsc);
+    
+ 
+};
+
+function closePopupByClick(evt, popup) {
+    if (evt.target === evt.currentTarget) { closePopup(popup); }
 }
+
+popupEditProfile.addEventListener('click', (evt) => closePopupByClick(evt, popupEditProfile));
+
+popupAddCard.addEventListener('click', (evt) => closePopupByClick(evt, popupAddCard));
+
+popupViewPhoto.addEventListener('click', (evt) => closePopupByClick(evt, popupViewPhoto));
 
 editProfileButton.addEventListener('click', function () {
     openPopup(popupEditProfile);
@@ -140,3 +181,4 @@ function createCard(name, link) {
 function renderCard(card) {
     cardsGrid.prepend(card);
 }
+
