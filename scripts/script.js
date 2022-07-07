@@ -22,8 +22,13 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__about');
 const cardTemplate = document.querySelector('#element').content;
 const imgLink = popupViewPhoto.querySelector('.popup__photo');
-
 const imgCaption = popupViewPhoto.querySelector('.popup__photo-caption');
+
+const submitEditProfileFormBtn = popupEditProfile.querySelector(config.submitButtonSelector);
+const inputsListEditProfileForm = Array.from(popupEditProfile.querySelectorAll(config.inputSelector));
+const submitAddCardFromBtn = popupAddCard.querySelector(config.submitButtonSelector);
+const inputsListAddCardForm = Array.from(popupAddCard.querySelectorAll(config.inputSelector));
+
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEsc);
@@ -43,31 +48,29 @@ function openPopup(popupElement) {
 
 function closePopupByClick(evt, popup) {
     if (evt.target === evt.currentTarget) { closePopup(popup); }
-}
+};
 
 popupEditProfile.addEventListener('click', (evt) => closePopupByClick(evt, popupEditProfile));
 popupAddCard.addEventListener('click', (evt) => closePopupByClick(evt, popupAddCard));
 popupViewPhoto.addEventListener('click', (evt) => closePopupByClick(evt, popupViewPhoto));
 
+function resetFormCondition(formElement, inputList, buttonElement, config) {
+    inputList.forEach((inputElement) => {
+        isValid(formElement, inputElement, config);
+        toggleButtonState(inputList, buttonElement, config);
+    });
+};
+
 editProfileButton.addEventListener('click', function () {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
-
-    const buttonElement = popupEditProfile.querySelector(config.submitButtonSelector);
-    const inputList = Array.from(popupEditProfile.querySelectorAll(config.inputSelector));
-    inputList.forEach((inputElement) => {
-        isValid(popupEditProfile, inputElement, config);
-        toggleButtonState(inputList, buttonElement, config);
-    });
+    resetFormCondition(popupEditProfile, inputsListEditProfileForm, submitEditProfileFormBtn, config);
 
     openPopup(popupEditProfile);
 })
 
 addButton.addEventListener('click', function () {
-    const buttonElement = popupAddCard.querySelector(config.submitButtonSelector);
-    const inputList = Array.from(popupAddCard.querySelectorAll(config.inputSelector));
-    toggleButtonState(inputList, buttonElement, config);
-
+    toggleButtonState(inputsListAddCardForm, submitAddCardFromBtn, config);
     openPopup(popupAddCard);
 });
 
