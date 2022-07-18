@@ -104,38 +104,12 @@ function deleteCard(el) {
     el.remove();
 }
 
-initialCards.forEach(function (card) {
-    renderCard(createCard(card.name, card.link));
+initialCards.forEach(function (item) {
+    const card = new Card(item);
+    const cardElement = card.generateCard();
+    renderCard(cardElement);
 })
-
-function createCard(name, link) {
-    const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-    const cardPhoto = cardElement.querySelector('.element__photo');
-    const cardLike = cardElement.querySelector('.element__like-button');
-    const cardTitle = cardElement.querySelector('.element__title');
-    cardPhoto.src = link;
-    cardPhoto.alt = 'Фото ' + name;
-    cardTitle.textContent = name;
-
-    cardPhoto.addEventListener('click', function (evt) {
-        imgLink.src = cardPhoto.src;
-        imgLink.alt = cardPhoto.alt;
-        imgCaption.textContent = cardTitle.textContent;
-        openPopup(popupViewPhoto);
-    });
-
-    cardLike.addEventListener('click', function (evt) {
-        toggleLike(cardLike);
-    });
-
-    cardElement.querySelector('.element__delete-button').addEventListener('click', function (evt) {
-        deleteCard(cardElement);
-    });
-
-    return cardElement;
-}
 
 function renderCard(card) {
     cardsGrid.prepend(card);
 }
-
