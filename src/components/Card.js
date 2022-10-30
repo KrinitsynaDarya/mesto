@@ -1,7 +1,7 @@
 
 export class Card {
   /* 3 передаём селектор темплейта в конструктор */
-  constructor(data, cardSelector, openPopup) {
+  constructor(data, cardSelector, handleCardClick) {
     this._cardPhoto = data.link;
     this._cardTitle = data.name;
     this._cardSelector = cardSelector;
@@ -9,8 +9,7 @@ export class Card {
     /* 5 объявляем элементы полями класса */
     this._popupPhotoLink = this._cardPhotoPopup.querySelector('.popup__photo');
     this._popupPhotoCaption = this._cardPhotoPopup.querySelector('.popup__photo-caption');
-
-    this._openPopup = () => { openPopup(this._cardPhotoPopup); };
+    this._handleCardClick = handleCardClick;
   }
   /* 4 передаём селектор темплейта в метод */
   _getTemplate() {
@@ -53,7 +52,7 @@ export class Card {
       this._popupPhotoLink.alt = this._cardTitle;
       this._popupPhotoCaption.textContent = this._cardTitle;
 
-      this._openPopup();
+      this._handleCardClick(this._cardTitle, this._cardPhoto);
     });
 
     this._elementLike.addEventListener('click', (evt) => {
