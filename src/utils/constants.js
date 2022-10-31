@@ -9,15 +9,16 @@ export const config =
     inputErrorClass: 'popup__field_type_error',
     errorClass: 'popup__field-error_active'
 };
-/*кнопки*/
-export const editProfileButton = document.querySelector('.profile__edit-button');
-export const addButton = document.querySelector('.profile__add-button');
+/* 5 кнопки переименованы */
+export const buttonEditProfile = document.querySelector('.profile__edit-button');
+export const buttonAdd = document.querySelector('.profile__add-button');
 
 /*формы*/
-const formEditProfile = document.querySelector('#popup-profile-edit');
-const formAddCard = document.querySelector('#popup-card-new');
-export const editProfileForm = document.querySelector('.popup__form_type_edit-profile');
-export const addCardForm = document.querySelector('.popup__form_type_add-card');
+/*const formEditProfile = document.querySelector('#popup-profile-edit');
+const formAddCard = document.querySelector('#popup-card-new');*/
+/* 9* обращаемся через модификаторы */
+export const formEditProfile = document.querySelector('.popup__form_type_edit-profile');
+export const formAddCard = document.querySelector('.popup__form_type_add-card');
 
 /*поля ввода*/
 export const nameInput = formEditProfile.querySelector('#profile-name');

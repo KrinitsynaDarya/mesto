@@ -3,15 +3,15 @@ export class UserInfo {
         this._userName = document.querySelector(userNameSelector);
         this._about = document.querySelector(aboutUserSelector);
     }
+    /* 7* убрали избыточную переменную userInfo */
     getUserInfo() {
-        const userInfo = {
+        return {
             name: this._userName.textContent,
             about: this._about.textContent
         };
-        return userInfo;
     }
-    setUserInfo(name, about) {
-        this._userName.textContent = name;
-        this._about.textContent = about;
+    setUserInfo(data) {
+        this._userName.textContent = data.profileName;
+        this._about.textContent = data.profileJob;
     }
 }

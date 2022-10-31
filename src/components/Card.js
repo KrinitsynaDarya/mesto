@@ -1,4 +1,3 @@
-
 export class Card {
   /* 3 передаём селектор темплейта в конструктор */
   constructor(data, cardSelector, handleCardClick) {
@@ -13,13 +12,12 @@ export class Card {
   }
   /* 4 передаём селектор темплейта в метод */
   _getTemplate() {
-    const cardElement = document
+    /* 1* убираем избыточную переменную cardElement */
+    return document
       .querySelector(this._cardSelector)
       .content
       .querySelector('.element')
       .cloneNode(true);
-
-    return cardElement;
   }
 
   generateCard() {
@@ -31,7 +29,8 @@ export class Card {
     this._elementDelete = this._element.querySelector('.element__delete-button');
 
     this._elementPhoto.src = this._cardPhoto;
-    this._elementPhoto.alt = 'Фото ' + this._cardTitle;
+    /* 2* упрощаем подпись, для современных скринридеров нет необходимости добавлять слова "фото", "изображение" и т.д.*/
+    this._elementPhoto.alt = this._cardTitle;
     this._elementTitle.textContent = this._cardTitle;
 
     this._setEventListeners();
@@ -44,6 +43,8 @@ export class Card {
 
   _deleteCard() {
     this._element.remove();
+    /* 3* после удаления карточки очищаем ссылку на DOM-элемент*/
+    this._element = null;
   }
 
   _setEventListeners() {
