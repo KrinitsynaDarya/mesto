@@ -42,11 +42,11 @@
                 <!-- 8. Оставлен только один заголовок уровня h1 на странице -->
                 <fieldset class="popup__input-container">
                     <!-- 9. Замена класса на модификатор элемента, добавление атрибутов name, placeholder -->
-                    <input class="popup__field" id="profile-name" name="profileName" minlength="2" maxlength="40"
-                        novalidate required placeholder="Имя">
+                    <input class="popup__field" id="profile-name" name="name" minlength="2" maxlength="40" novalidate
+                        required placeholder="Имя">
                     <span class="popup__field-error profile-name-error"></span>
-                    <input class="popup__field" id="profile-job" name="profileJob" minlength="2" maxlength="200"
-                        novalidate required placeholder="О себе">
+                    <input class="popup__field" id="profile-job" name="about" minlength="2" maxlength="200" novalidate
+                        required placeholder="О себе">
                     <span class="popup__field-error profile-job-error"></span>
                 </fieldset>
 
@@ -61,11 +61,11 @@
             <form class="popup__form popup__form_type_add-card" name="newCard" method="POST">
                 <h2 class="popup__title">Новое место</h2>
                 <fieldset class="popup__input-container">
-                    <input class="popup__field popup__field_type_place" id="card-name" name="name" minlength="1" maxlength="30"
-                        novalidate required placeholder="Название">
+                    <input class="popup__field popup__field_type_place" id="card-name" name="name" minlength="1"
+                        maxlength="30" novalidate required placeholder="Название">
                     <span class="popup__field-error card-name-error"></span>
-                    <input class="popup__field popup__field_type_link" id="card-link" name="link" type="url" required novalidate
-                        placeholder="Ссылка на картинку">
+                    <input class="popup__field popup__field_type_link" id="card-link" name="link" type="url" required
+                        novalidate placeholder="Ссылка на картинку">
                     <span class="popup__field-error card-link-error"></span>
                 </fieldset>
                 <button type="submit" class="popup__submit-button">Сохранить</button>
@@ -84,11 +84,14 @@
             <img class="element__photo" alt=" " src=" ">
             <div class="element__group">
                 <h2 class="element__title"></h2>
-                <button type="button" class="element__like-button"></button>
+                <div class="element__like-group">
+                    <button type="button" class="element__like-button"></button>
+                    <span class="element__like-number">0</span>
+                </div>
             </div>
             <button type="button" class="element__delete-button"></button>
         </div>
-    </template>  
-    </body>
+    </template>
+</body>
 
 </html>

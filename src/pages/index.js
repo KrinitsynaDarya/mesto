@@ -7,25 +7,72 @@ import { Section } from '../components/Section.js';
 import { cardListSection, buttonEditProfile, buttonAdd, nameInput, jobInput, placeInput, linkInput, config, /*editProfileForm, addCardForm*/formEditProfile, formAddCard } from '../utils/constants.js';
 import { PopupWithForm } from '../components/PopupWithForm';
 import { PopupWithImage } from '../components/PopupWithImage';
+import Api from '../components/Api';
+/* API */
+const api = new Api({
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-52',
+    headers: {
+        authorization: '258a83b0-9c97-4384-ab74-1331eb2f1b83',
+        'Content-Type': 'application/json'
+    }
+});
+let userId;
+
+api.getUserInfo().then((userData) => {
+    userInfo.setUserInfo(userData);
+    userId = userData._id;
+    console.log(userData);
+})
+    .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+    });
+
+const cardsList = new Section({
+    renderer: (item) => {
+        cardsList.addItem(createCard(item));
+    }
+},
+    cardListSection);
+    
+api.getInitialCards().then((cardsData) => {
+    console.log(cardsData);
+    /*создание карточки*/
+
+    cardsList.renderItems(cardsData);
+})
+    .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+    });
 
 /*пользователь*/
-const userInfo = new UserInfo('.profile__name', '.profile__about');
+const userInfo = new UserInfo('.profile__name', '.profile__about', '.profile__avatar');
 
 /*попапы*/
 /* 2 поменяли входные параметры */
 const popupEditProfile = new PopupWithForm('#popup-profile-edit', (userData) => {
-    userInfo.setUserInfo(userData);
-    popupEditProfile.close();
+    api.editUserInfo(userData)
+        .then((userData) => {
+            userInfo.setUserInfo(userData);
+            popupEditProfile.close();
+            console.log(userData);
+        })
+        .catch((err) => {
+            console.log(`Ошибка: ${err}`);
+        });
+    // userInfo.setUserInfo(userData);
+
 });
 popupEditProfile.setEventListeners();
 /* 3 поменяли входные параметры */
 const popupAddCard = new PopupWithForm('#popup-card-new', (itemData) => {
-    /*const item = {
-        name: placeInput.value,
-        link: linkInput.value
-    };*/
-    cardsList.addItem(createCard(itemData));
-    popupAddCard.close();
+    api.addNewCard(itemData)
+        .then((itemData) => {
+            cardsList.addItem(createCard(itemData));
+            popupAddCard.close();
+        })
+        .catch((err) => {
+            console.log(`Ошибка: ${err}`);
+        });
 });
 popupAddCard.setEventListeners();
 
@@ -56,18 +103,10 @@ function handleButtonAddClick() {
 }
 buttonAdd.addEventListener('click', handleButtonAddClick);
 
-/*создание карточки*/
-const cardsList = new Section({
-    items: initialCards,
-    renderer: (item) => {
-        cardsList.addItem(createCard(item));
-    }
-},
-    cardListSection);
-cardsList.renderItems();
+
 
 function createCard(item) {
-    const card = new Card(item, '#element', (name, link) => { popupCardPhoto.open(name, link) });
+    const card = new Card(item, '#element', (name, link) => { popupCardPhoto.open(name, link) }, userId);
     /* 8* избавились от избыточной переменной */
     return card.generateCard();
 }
