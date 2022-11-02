@@ -5,6 +5,8 @@ export class PopupWithForm extends Popup {
         this._form = this._popup.querySelector('.popup__form');
         // достаём все элементы полей 5* прямо в конструкторе
         this._inputList = this._popup.querySelectorAll('.popup__field');
+        this._submitButton = this._popup.querySelector('.popup__submit-button');
+        this._submitButtonTextDefault = 'Сохранить';
         this._handleFormSubmit = handleFormSubmit;
     }
 
@@ -18,6 +20,18 @@ export class PopupWithForm extends Popup {
         // возвращаем объект значений
         return this._formValues;
     }
+
+    renderLoading(isLoading) {
+        if (isLoading) {
+            this._submitButton.textContent = 'Сохранение...';
+            debugger;
+            console.log(this._submitButton.textContent);
+        }
+        else {
+            this._submitButton.textContent = this._submitButtonTextDefault;
+        }
+    }
+
     close() {
         super.close();
         this._form.reset();

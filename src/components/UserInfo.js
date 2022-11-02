@@ -9,7 +9,7 @@ export class UserInfo {
         return {
             name: this._userName.textContent,
             about: this._about.textContent,
-            about: this._avatar.src
+            avatar: this._avatar.src
         };
     }
     setUserInfo(data) {
