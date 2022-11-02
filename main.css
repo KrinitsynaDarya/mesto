@@ -6,7 +6,7 @@
 .header__logo{height:33px;width:142px}@media screen and (max-width:767px){.header__logo{height:24.4px;width:103.74px}}
 .profile{align-items:center;color:#fff;display:flex;margin:0;padding:40px 0 0}@media screen and (max-width:767px){.profile{flex-direction:column;padding:42px 0 0;text-align:center}}
 .profile__wrapper{align-items:baseline;display:flex}@media screen and (max-width:767px){.profile__wrapper{grid-area:profile__wrapper;margin:0 0 0 26px}}
-.profile__avatar{border-radius:50%;height:120px;min-width:120px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center}
+.profile__avatar{border-radius:50%;height:120px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:120px}
 .profile__info{margin:0;max-width:calc(100% - 320px);padding:22px 0 0 30px}@media screen and (max-width:767px){.profile__info{max-width:100%;padding:26px 0 36px}}
 .profile__name{color:#fff;font-family:Inter,Arial,sans-serif;font-size:42px;font-style:normal;font-weight:500;line-height:1.14;margin:0;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:767px){.profile__name{font-size:27px;grid-area:profile__name;line-height:33px;text-align:center}}
 .profile__about{color:#fff;font-family:Inter,Arial,sans-serif;font-size:18px;font-style:normal;font-weight:400;line-height:22px;margin:0;overflow:hidden;padding:16px 0 0;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:767px){.profile__about{font-size:14px;grid-area:profile__about;line-height:17px;padding:14px 0 0;text-align:center}}
@@ -16,8 +16,10 @@
 .elements{display:grid;gap:20px 17px;grid-auto-flow:row;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));justify-content:center;margin:0;padding:50px 0 0}@media screen and (max-width:767px){.elements{padding:36px 0 0}}
 .element{background-color:#fff;border-radius:10px;display:grid;height:-moz-max-content;height:max-content;margin:0;overflow:hidden;padding:0;position:relative;width:100%}
 .element__group{display:flex;justify-content:space-between;margin:0;padding:25px 15px 31px 21px}
+.element__like-group{display:flex;flex-direction:column;justify-content:space-between;margin:0;padding:0}
 .element__like-button{align-self:center;background-color:transparent;background-image:url(images/logo-like.1ad06e85f169668a1f36.svg);background-position:50%;background-repeat:no-repeat;background-size:100% 100%;border:none;height:19px;margin:0;padding:0;width:22px}.element__like-button:hover{cursor:pointer;opacity:.5}
 .element__like-button_active{background-image:url(images/logo-like-active.35948469632d0421d697.svg)}.element__like-button_active:hover{opacity:1}
+.element__like-number{align-self:center;color:#000;font-family:Inter,Arial,sans-serif;font-size:13px;font-style:normal;font-weight:400;height:13px;line-height:16px;margin:0;padding:3px 0 0;text-align:center;width:10px}
 .element__delete-button{background-color:transparent;background-image:url(images/delete-icon.ce3b64935accf9b8212e.svg);background-position:50%;background-repeat:no-repeat;background-size:100% 100%;border:none;height:20px;margin:0;padding:0;position:absolute;right:20px;top:20px;width:20px}.element__delete-button:hover{cursor:pointer;opacity:.6}
 .element__photo{background-color:#87cefa;background-image:url(images/no-image.d4b780bccc3e8b51500e.svg);background-position:50%;background-repeat:no-repeat;height:282px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:100%}
 .element__title{font-family:Inter,Arial,sans-serif;font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:0;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap;width:200px}
