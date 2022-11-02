@@ -4,9 +4,10 @@
 .page{background-color:#000;box-sizing:border-box;margin:0 auto;max-width:1280px;min-width:320px;padding:0 200px}@media screen and (max-width:1279px){.page{padding:0 150px}}@media screen and (max-width:1023px){.page{padding:0 100px}}@media screen and (max-width:767px){.page{padding:0 19px}}@media screen and (max-width:424px){.page{padding:0}}
 .header{border-bottom:1px solid rgba(84,84,84,.7);box-sizing:border-box;padding:45px 200px 41px 0}@media screen and (max-width:424px){.header{padding:28px 0 31.6px 27px}}
 .header__logo{height:33px;width:142px}@media screen and (max-width:767px){.header__logo{height:24.4px;width:103.74px}}
-.profile{align-items:center;color:#fff;display:flex;margin:0;padding:40px 0 0}@media screen and (max-width:767px){.profile{flex-direction:column;padding:42px 0 0;text-align:center}}
+.profile{align-items:center;color:#fff;display:flex;margin:0;padding:40px 0 0;position:relative}@media screen and (max-width:767px){.profile{flex-direction:column;padding:42px 0 0;text-align:center}}
 .profile__wrapper{align-items:baseline;display:flex}@media screen and (max-width:767px){.profile__wrapper{grid-area:profile__wrapper;margin:0 0 0 26px}}
 .profile__avatar{border-radius:50%;height:120px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:120px}
+.profile__avatar-button{background-image:url(images/change-avatar.a086f758840ae814ecde.svg);background-position:50%;background-repeat:no-repeat;height:120px;opacity:0;position:absolute;width:120px}.profile__avatar-button:hover{background-color:#000;opacity:.8}
 .profile__info{margin:0;max-width:calc(100% - 320px);padding:22px 0 0 30px}@media screen and (max-width:767px){.profile__info{max-width:100%;padding:26px 0 36px}}
 .profile__name{color:#fff;font-family:Inter,Arial,sans-serif;font-size:42px;font-style:normal;font-weight:500;line-height:1.14;margin:0;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:767px){.profile__name{font-size:27px;grid-area:profile__name;line-height:33px;text-align:center}}
 .profile__about{color:#fff;font-family:Inter,Arial,sans-serif;font-size:18px;font-style:normal;font-weight:400;line-height:22px;margin:0;overflow:hidden;padding:16px 0 0;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:767px){.profile__about{font-size:14px;grid-area:profile__about;line-height:17px;padding:14px 0 0;text-align:center}}
@@ -32,6 +33,7 @@
 .popup__submit-button{background:#000;border:none;border-radius:2px;color:#fff;font-family:Inter,Arial,sans-serif;font-size:18px;font-style:normal;font-weight:400;height:50px;line-height:22px;margin:0;padding:0;text-align:center;width:100%}.popup__submit-button:hover{cursor:pointer;opacity:.8}@media screen and (max-width:527px){.popup__submit-button{font-size:14px;line-height:17px}}
 .popup__submit-button_inactive{background:transparent;border:1px solid #000;color:#000;opacity:.2}.popup__submit-button_inactive:hover{cursor:default;opacity:.2}
 .popup__title{color:#000;font-family:Inter,Arial,sans-serif;font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:0;padding:0}@media screen and (max-width:527px){.popup__title{font-size:18px;line-height:22px}}
+.popup__title_type_message{margin:0 0 38px}
 .popup__form{background-color:#fff;border-radius:10px;box-sizing:border-box;color:#000;margin:0 auto;padding:34px 36px 37px;width:430px}@media screen and (max-width:527px){.popup__form{padding:25px 22px;width:100%}}
 .popup__field{border:0;border-bottom:1px solid rgba(0,0,0,.2);box-sizing:border-box;color:#000;display:block;font-family:Inter,Arial,sans-serif;font-size:14px;font-style:normal;font-weight:400;line-height:17px;margin:0;padding:0 0 12px}.popup__field:focus{outline:none}
 .popup__input-container{border:none;display:grid;margin:54px 0 18px;padding:0}@media screen and (max-width:527px){.popup__input-container{margin:75px 0 15px}}
