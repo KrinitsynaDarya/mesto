@@ -3,7 +3,7 @@ import { UserInfo } from '../components/UserInfo';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js';
-import { cardListSection, buttonEditAvatar, buttonEditProfile, buttonAdd, nameInput, jobInput, avatarLinkInput, config, formEditProfile, formAddCard, formEditAvatar } from '../utils/constants.js';
+import { cardListSection, buttonEditAvatar, buttonEditProfile, buttonAdd, config, formEditProfile, formAddCard, formEditAvatar } from '../utils/constants.js';
 import { PopupWithForm } from '../components/PopupWithForm';
 import { PopupWithImage } from '../components/PopupWithImage';
 import { PopupWithConfirm } from '../components/PopupWithConfirm';
@@ -20,13 +20,6 @@ const api = new Api({
 /*пользователь*/
 const userInfo = new UserInfo('.profile__name', '.profile__about', '.profile__avatar');
 let userId;
-api.getUserInfo().then((userData) => {
-    userInfo.setUserInfo(userData);
-    userId = userData._id;
-})
-    .catch((err) => {
-        console.log(`Ошибка: ${err}`);
-    });
 
 /*создание карточки*/
 const cardsList = new Section({
@@ -36,9 +29,13 @@ const cardsList = new Section({
 },
     cardListSection);
 
-api.getInitialCards().then((cardsData) => {
-    cardsList.renderItems(cardsData);
-})
+/* объединяем два запроса к серверу */
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+    .then(([userData, cardsData]) => {
+        userInfo.setUserInfo(userData);
+        userId = userData._id;
+        cardsList.renderItems(cardsData);
+    })
     .catch((err) => {
         console.log(`Ошибка: ${err}`);
     });
@@ -65,7 +62,6 @@ const popupEditAvatar = new PopupWithForm('#popup-avatar-edit', (userData) => {
     api.editUserAvatar(userData)
         .then((userData) => {
             userInfo.setUserInfo(userData);
-            console.log(userData);
             popupEditAvatar.close();
         })
         .catch((err) => {
@@ -113,16 +109,16 @@ editAvatarValidator.enableValidation();
 /*слушатели кнопок*/
 /* 4 колбэки вынесены в отдельные функции */
 function handleBtnEditProfileClick() {
-    const { name, about } = userInfo.getUserInfo();
-    nameInput.value = name;
-    jobInput.value = about;
+    /* добавив новый метод setInputValues, избавляемся от ввода в инпутах */
+    popupEditProfile.setInputValues(userInfo.getUserInfo());
     profileEditFormValidator.resetFormCondition();
     popupEditProfile.open();
 }
 buttonEditProfile.addEventListener('click', handleBtnEditProfileClick)
 
 function handleBtnEditAvatar() {
-    avatarLinkInput.value = userInfo.getUserInfo().avatar;
+    /* добавив новый метод setInputValues, избавляемся от ввода в инпутах */
+    popupEditAvatar.setInputValues(userInfo.getUserInfo());
     editAvatarValidator.resetFormCondition();
     popupEditAvatar.open()
 }

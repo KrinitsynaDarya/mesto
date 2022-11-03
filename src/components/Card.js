@@ -73,10 +73,7 @@ export class Card {
 
   _setEventListeners() {
     this._elementPhoto.addEventListener('click', (evt) => {
-      this._popupPhotoLink.src = this._cardPhoto;
-      this._popupPhotoLink.alt = this._cardTitle;
-      this._popupPhotoCaption.textContent = this._cardTitle;
-
+      /* убрали использование элементов попапа */
       this._handleCardClick(this._cardTitle, this._cardPhoto);
     });
 

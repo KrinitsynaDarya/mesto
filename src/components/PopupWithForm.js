@@ -21,11 +21,16 @@ export class PopupWithForm extends Popup {
         return this._formValues;
     }
 
+    setInputValues(data) {
+        this._inputList.forEach((input) => {
+            // тут вставляем в 'value' инпута данные из объекта по атрибуту 'name' этого инпута
+            input.value = data[input.name];
+        });
+    }
+
     renderLoading(isLoading) {
         if (isLoading) {
             this._submitButton.textContent = 'Сохранение...';
-            debugger;
-            console.log(this._submitButton.textContent);
         }
         else {
             this._submitButton.textContent = this._submitButtonTextDefault;

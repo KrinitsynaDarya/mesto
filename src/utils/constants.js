@@ -20,11 +20,3 @@ const formAddCard = document.querySelector('#popup-card-new');*/
 export const formEditProfile = document.querySelector('.popup__form_type_edit-profile');
 export const formAddCard = document.querySelector('.popup__form_type_add-card');
 export const formEditAvatar = document.querySelector('.popup__form_type_edit-avatar');
-/*поля ввода*/
-export const nameInput = formEditProfile.querySelector('#profile-name');
-export const jobInput = formEditProfile.querySelector('#profile-job');
-
-export const placeInput = formAddCard.querySelector('.popup__field_type_place');
-export const linkInput = formAddCard.querySelector('.popup__field_type_link');
-
-export const avatarLinkInput = formEditAvatar.querySelector('.popup__field_type_avatar');
